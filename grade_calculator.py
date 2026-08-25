@@ -1,3 +1,5 @@
+import csv
+import os
 print("=== Student Grade Calculator ===")
 
 student_name = input("Enter the student's name: ")
@@ -51,3 +53,42 @@ else:
 
 print("Grade:", grade)
 print("Result:", result)
+
+file_name = "student_results.csv"
+file_exists = os.path.exists(file_name)
+
+header = [
+    "Student",
+    "Hindi",
+    "English",
+    "Mathematics",
+    "Science",
+    "Computer",
+    "Total",
+    "Percentage",
+    "Grade",
+    "Result",
+]
+
+student_data = [
+    student_name,
+    marks[0],
+    marks[1],
+    marks[2],
+    marks[3],
+    marks[4],
+    total_marks,
+    round(percentage, 2),
+    grade,
+    result,
+]
+
+with open(file_name, "a", newline="") as file:
+    writer = csv.writer(file)
+
+    if not file_exists:
+        writer.writerow(header)
+
+    writer.writerow(student_data)
+
+print("Result saved to", file_name)
