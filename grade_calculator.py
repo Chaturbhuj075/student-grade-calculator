@@ -8,8 +8,18 @@ subjects = ["Hindi", "English", "Mathematics", "Science", "Computer"]
 marks = []
 
 for subject in subjects:
-    mark = float(input(f"Enter marks for {subject} (0-100): "))
-    marks.append(mark)
+    while True:
+        try:
+            mark = float(input(f"Enter marks for {subject} (0-100): "))
+
+            if 0 <= mark <= 100:
+                marks.append(mark)
+                break
+
+            print("Marks must be between 0 and 100.")
+
+        except ValueError:
+            print("Please enter a valid number.")
 
 total_marks = sum(marks)
 percentage = total_marks / len(subjects)
