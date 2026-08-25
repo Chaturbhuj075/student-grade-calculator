@@ -10,6 +10,8 @@ A beginner-friendly Python command-line program that calculates a student's tota
 - Calculates total marks and percentage
 - Assigns a grade based on percentage
 - Marks the student as failed if any subject is below 33
+- - Saves multiple student results locally in `student_results.csv`
+- Keeps previous results by adding each new student as a separate row
 
 ## Requirements
 
